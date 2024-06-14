@@ -1,0 +1,8 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glassmorphism-card {
+    @apply bg-white bg-opacity-30 backdrop-filter backdrop-blur-md border border-white border-opacity-30 shadow-lg rounded-lg p-6 text-center transition transform hover:scale-105;
+  }
