@@ -8,7 +8,8 @@ const AdminDashboard = () => {
   return (
     <div>
       <h1>Admin Dashboard</h1>
-      <p>Welcome, {auth.username}!</p>
+      {/* <p>Welcome, {auth.username}!</p> */}
+      <p>Welcome</p>
       <button onClick={logout}>Logout</button>
     </div>
   );

@@ -1,5 +1,6 @@
 // ./src/App.js
 import React from 'react';
+import './fontawesome';
 import { Route, Routes } from 'react-router-dom';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import TeacherDashboard from './components/Teacher/TeacherDashboard';
