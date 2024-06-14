@@ -1,7 +1,11 @@
 // ./src/components/Auth/Register.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 const Register = ({ role }) => {
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     username: '',
@@ -19,8 +23,9 @@ const Register = ({ role }) => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    // Add your registration logic here based on role
+    // Add your registration logic here, and then call login function
     console.log(`Registered as ${role} with data:`, formData);
+    login(role, formData);  // Example registration logic
   };
 
   return (

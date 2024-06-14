@@ -9,6 +9,9 @@ import Register from './components/Auth/Register';
 import Home from './pages/Home';
 import Footer from './components/Common/Footer';
 import NotFound from './components/Common/NotFound';
+import { AuthProvider } from './context/AuthContext';
+// import ProtectedRoute from './components/Common/ProtectedRoute';
+
 
 function App() {
   return (
@@ -22,9 +25,15 @@ function App() {
           <Route path="/admin/register" element={<Register role="admin" />} />
           <Route path="/teacher/register" element={<Register role="teacher" />} />
           <Route path="/student/register" element={<Register role="student" />} />
+
+          {/* <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+          <Route path="/teacher" element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />
+          <Route path="/student" element={<ProtectedRoute><StudentDashboard /></ProtectedRoute>} />
+           */}
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/teacher" element={<TeacherDashboard />} />
           <Route path="/student" element={<StudentDashboard />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

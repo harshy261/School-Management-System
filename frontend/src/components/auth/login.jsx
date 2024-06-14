@@ -1,18 +1,23 @@
 // ./src/components/Auth/Login.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 const Login = ({ role }) => {
+  const { login } = useAuth();
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({ username: '', password: '' });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Add your login logic here based on role
+    // Add your login logic here, and then call login function
     console.log(`Logged in as ${role}`);
-  };
-
-  const handleSignupNavigation = () => {
-    navigate(`/${role}/register`);
+    login(role, formData);  // Example login logic
   };
 
   return (
@@ -25,7 +30,10 @@ const Login = ({ role }) => {
           </label>
           <input
             id="username"
+            name="username"
             type="text"
+            value={formData.username}
+            onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -35,7 +43,10 @@ const Login = ({ role }) => {
           </label>
           <input
             id="password"
+            name="password"
             type="password"
+            value={formData.password}
+            onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
@@ -49,7 +60,7 @@ const Login = ({ role }) => {
         </div>
       </form>
       <button
-        onClick={handleSignupNavigation}
+        onClick={() => navigate(`/${role}/register`)}
         className="mt-4 text-blue-500 hover:text-blue-700 font-bold"
       >
         Don't have an account? Signup
