@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (role, formData) => {
     // Mock login logic
+    
     setUser({ role, ...formData });
     // In a real app, you would also set a token here
   };

@@ -3,12 +3,12 @@ import React from 'react';
 import { useAuth } from '../../context/AuthContext';
 
 const AdminDashboard = () => {
-  const { auth, logout } = useAuth();
-
+  const { user, logout } = useAuth();
+  console.log(user);
   return (
     <div>
       <h1>Admin Dashboard</h1>
-      {/* <p>Welcome, {auth.username}!</p> */}
+      <p>Welcome, {user.username}!</p>
       <p>Welcome</p>
       <button onClick={logout}>Logout</button>
     </div>

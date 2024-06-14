@@ -13,11 +13,12 @@ const Login = ({ role }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async(e) => {
     e.preventDefault();
     // Add your login logic here, and then call login function
     console.log(`Logged in as ${role}`);
-    login(role, formData);  // Example login logic
+    await login(role, formData);  // Example login logic
+    navigate('/admin');
   };
 
   return (
