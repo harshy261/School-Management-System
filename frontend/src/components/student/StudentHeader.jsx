@@ -4,11 +4,14 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext'; // Assuming AuthContext provides user information
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell } from '@fortawesome/free-solid-svg-icons'; 
 
 const StudentHeader = () => {
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth(); // Fetch current user information and logout function from context
 
+  const notificationCount = 2;
   const handleEditProfile = () => {
     navigate('/student/UpdateProfile');
   };
@@ -32,12 +35,23 @@ const StudentHeader = () => {
         </div>
       </div>
       <div className="flex items-center">
-      <button
+        {/* Notification Icon */}
+        <Link to="/student/MyNotifications" className="text-white mr-4 hover:text-gray-300 relative">
+          <FontAwesomeIcon icon={faBell} className="text-3xl" />
+          {notificationCount > 0 && (
+            <span className="absolute top-0 right-0 bg-red-500 rounded-full w-4 h-4 flex items-center justify-center text-xs text-white">
+              {notificationCount}
+            </span>
+          )}
+        </Link>
+        {/* Edit Profile Button */}
+        <button
           onClick={handleEditProfile}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4"
-      >
+        >
           Edit Profile
         </button>
+        {/* Logout Button */}
         <button
           onClick={handleLogout}
           className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"

@@ -43,6 +43,15 @@ const UpdateProfile = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="bg-white shadow-md rounded-lg p-6">
           <h2 className="text-xl font-semibold mb-4">Personal Details</h2>
+          <div>
+              <label className="block text-gray-700">Profile Image</label>
+              <img src="../../src/assets/images/student.png" alt="Profile" className="h-24 w-24 rounded-full mb-2" />
+              <input
+                type="file"
+                name="profileImage"
+                className="w-full border border-gray-300 rounded-md p-2"
+              />
+            </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label className="block text-gray-700">Full Name</label>
@@ -104,15 +113,7 @@ const UpdateProfile = () => {
                 className="w-full border border-gray-300 rounded-md p-2"
               />
             </div>
-            <div>
-              <label className="block text-gray-700">Profile Image</label>
-              <img src="../../src/assets/images/student.png" alt="Profile" className="h-24 w-24 rounded-full mb-2" />
-              <input
-                type="file"
-                name="profileImage"
-                className="w-full border border-gray-300 rounded-md p-2"
-              />
-            </div>
+            
           </div>
         </div>
 

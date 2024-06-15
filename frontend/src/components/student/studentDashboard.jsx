@@ -28,7 +28,7 @@ const StudentDashboard = () => {
 
   return (
     <div className="flex">
-      <StudentSidebar />
+      {/* <StudentSidebar /> */}
       <div className="flex-1">
         <StudentHeader />
         {/* Main content area */}
