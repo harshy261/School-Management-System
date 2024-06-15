@@ -1,11 +1,13 @@
 // ./src/components/Student/StudentDashboard.jsx
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import StudentHeader from './StudentHeader';
 import StudentSidebar from './StudentSidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const StudentDashboard = () => {
+  const navigate = useNavigate();
 
   const services = [
     { title: 'Access and Update Profile', icon: 'fas fa-user' },

@@ -8,10 +8,12 @@ import StudentDashboard from './components/Student/StudentDashboard';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import Home from './pages/Home';
-import Footer from './components/Common/Footer';
 import NotFound from './components/Common/NotFound';
+import Footer from './components/Common/Footer';
 import { AuthProvider } from './context/AuthContext';
 // import ProtectedRoute from './components/Common/ProtectedRoute';
+
+import UpdateProfile from './components/Student/UpdateProfile';
 
 
 function App() {
@@ -34,6 +36,8 @@ function App() {
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/teacher" element={<TeacherDashboard />} />
           <Route path="/student" element={<StudentDashboard />} />
+
+          <Route path="/student/UpdateProfile" element={<UpdateProfile />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>

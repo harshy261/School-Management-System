@@ -1,29 +1,28 @@
+// ./src/context/AuthContext.js
+
 import React, { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null); // Initialize with null or initial user state
 
-  const login = (role, formData) => {
-    // Mock login logic
-    
-    setUser({ role, ...formData });
-    // In a real app, you would also set a token here
+  const login = (userData) => {
+    // Logic to authenticate user and set currentUser
+    setCurrentUser(userData);
   };
 
   const logout = () => {
-    setUser(null);
-    // In a real app, you would also remove the token here
+    // Logic to clear user session
+    setCurrentUser(null); // Clear currentUser
+    // Additional logic to clear any stored tokens or session details
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ currentUser, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);
